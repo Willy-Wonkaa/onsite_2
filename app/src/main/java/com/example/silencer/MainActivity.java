@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     private void setAlarm() {
         alarmManager1 =(AlarmManager)getSystemService(Context.ALARM_SERVICE);
         Intent intent1=new Intent(this, RequestReceiver1.class);
-        pendingIntent=PendingIntent.getBroadcast(this,0,intent1,0);
+        pendingIntent=PendingIntent.getBroadcast(this,0,intent1,PendingIntent.FLAG_IMMUTABLE);
         alarmManager1.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
 
     }
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     {
         alarmManager2 =(AlarmManager)getSystemService(Context.ALARM_SERVICE);
         Intent intent2=new Intent(this, RequestReceiver2.class);
-        pendingIntent2=PendingIntent.getBroadcast(this,0,intent2,0);
+        pendingIntent2=PendingIntent.getBroadcast(this,0,intent2,PendingIntent.FLAG_IMMUTABLE);
         alarmManager2.setExact(AlarmManager.RTC_WAKEUP,calendar2.getTimeInMillis(),pendingIntent2);
 
     }
